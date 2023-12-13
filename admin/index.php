@@ -1,3 +1,12 @@
+<?php
+require '../functions.php';
+
+
+$dataProduk = query("SELECT * FROM tb_produk");
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,11 +18,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 </head>
 
-<body>  
+<body>
     <div class="container">
         <nav>
             <ul>
-                <li ><a href="#" class="sidebar">
+                <li><a href="#" class="sidebar">
                         <i class="fas fa-menorah"></i>
                         <span class="nav-item">Dashboard</span>
                     </a></li>
@@ -38,7 +47,7 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th>ID</th>
+                                <th>No. </th>
                                 <th>Nama</th>
                                 <th>Harga</th>
                                 <th>Deskripsi</th>
@@ -48,15 +57,19 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td>01</td>
-                                <td>Bunga Cinta</td>
-                                <td>Rp.200,000</td>
-                                <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor magni, corrupti dolores doloribus, molestias id amet architecto adipisci totam alias, aliquid officiis veritatis quod? Quod sunt libero, iure labore amet doloribus eligendi adipisci officia enim veniam et, iusto perspiciatis quia quos dolorem temporibus, nobis velit reiciendis magnam tempora quibusdam exercitationem!</td>
-                                <td><img src="./images/product-1-3/product_1.jpg" alt=""></td>
-                                <td class="aksi">
-                                    <a href=""><button class="btn-edit"><i class="fas fa-pen"></i></button></a>
-                                    <a href=""><button class="btn-hapus"><i class="fas fa-trash"></i></button></a>
-                                </td>
+                                <?php $i = 1 ?>
+                                <?php foreach ($dataProduk as $row) :  ?>
+                                    <td><?= $i ?></td>
+                                    <td><?= $row["nama"] ?></td>
+                                    <td><?= $row["harga"] ?></td>
+                                    <td><?= $row["deskripsi"] ?></td>
+                                    <td><img src="../product_images/<?= $row["gambar"] ?>" alt=""   ></td>
+                                    <td class="aksi">
+                                        <a href=""><button class="btn-edit"><i class="fas fa-pen"></i></button></a>
+                                        <a href=""><button class="btn-hapus"><i class="fas fa-trash"></i></button></a>
+                                    </td>
+                                <?php $i++; ?>
+                                <?php endforeach; ?>
                             </tr>
                         </tbody>
                     </table>

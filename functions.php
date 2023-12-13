@@ -1,6 +1,21 @@
 <?php
 require 'koneksi.php';
 
+function query($query)
+{
+    global $koneksi;
+
+    $rows = [];
+    $result = mysqli_query($koneksi, $query);
+    while ($row = mysqli_fetch_assoc($result)) {
+        $rows[] = $row;
+    }
+
+
+    return $rows;
+}
+
+
 function tambahUser($data)
 {
     global $koneksi;

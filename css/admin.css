@@ -210,6 +210,7 @@ table thead tr {
 
 .table tbody tr {
     border-bottom: 1px solid #ddd;
+    text-align: center;
 }
 
 .table tbody tr:nth-of-type(odd) {
