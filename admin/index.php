@@ -55,7 +55,7 @@ $dataProduk = query("SELECT * FROM tb_produk");
                                 <th>Aksi</th>
                             </tr>
                         </thead>
-                        <?php if ($dataProduk = []) : ?>
+                        <?php if ($dataProduk) : ?>
                             <tbody>
                                 <tr>
                                     <?php $i = 1 ?>
