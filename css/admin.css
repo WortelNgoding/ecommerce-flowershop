@@ -316,3 +316,7 @@ table thead tr {
 .btn-edit:hover {
     background-color: blue;
 }
+
+.no-found {
+    text-align: center;
+}

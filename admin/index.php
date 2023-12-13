@@ -55,23 +55,27 @@ $dataProduk = query("SELECT * FROM tb_produk");
                                 <th>Aksi</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <?php $i = 1 ?>
-                                <?php foreach ($dataProduk as $row) :  ?>
-                                    <td><?= $i ?></td>
-                                    <td><?= $row["nama"] ?></td>
-                                    <td><?= $row["harga"] ?></td>
-                                    <td><?= $row["deskripsi"] ?></td>
-                                    <td><img src="../product_images/<?= $row["gambar"] ?>" alt=""   ></td>
-                                    <td class="aksi">
-                                        <a href=""><button class="btn-edit"><i class="fas fa-pen"></i></button></a>
-                                        <a href="hapus_produk.php?id=<?= $row['id']; ?>"><button class="btn-hapus"><i class="fas fa-trash"></i></button></a>
-                                    </td>
-                                <?php $i++; ?>
-                                <?php endforeach; ?>
-                            </tr>
-                        </tbody>
+                        <?php if ($dataProduk = []) : ?>
+                            <tbody>
+                                <tr>
+                                    <?php $i = 1 ?>
+                                    <?php foreach ($dataProduk as $row) :  ?>
+                                        <td><?= $i ?></td>
+                                        <td><?= $row["nama"] ?></td>
+                                        <td><?= $row["harga"] ?></td>
+                                        <td><?= $row["deskripsi"] ?></td>
+                                        <td><img src="../product_images/<?= $row["gambar"] ?>" alt=""></td>
+                                        <td class="aksi">
+                                            <a href=""><button class="btn-edit"><i class="fas fa-pen"></i></button></a>
+                                            <a href="hapus_produk.php?id=<?= $row['id']; ?>"><button class="btn-hapus"><i class="fas fa-trash"></i></button></a>
+                                        </td>
+                                        <?php $i++; ?>
+                                    <?php endforeach; ?>
+                                </tr>
+                            </tbody>
+                        <?php else : ?>
+                            <h1 class="no-found">Belum ada data produk!</h1>
+                        <?php endif; ?>
                     </table>
                 </div>
             </section>
