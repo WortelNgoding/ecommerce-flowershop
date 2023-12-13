@@ -53,6 +53,25 @@ function tambahProduk($data)
     return mysqli_affected_rows($koneksi);
 }
 
+function hapusProduk($id)
+{
+    global $koneksi;
+
+    $resultGambar = mysqli_query($koneksi, "SELECT gambar FROM tb_produk WHERE id = $id");
+    $fileGambar = mysqli_fetch_assoc($resultGambar);
+
+    $fileNameGambar = implode('.', $fileGambar);
+    $locationImage = "../product_images/$fileNameGambar";
+
+    if (file_exists($locationImage)) {
+        unlink('../product_images/' . $fileNameGambar);
+    }
+
+    mysqli_query($koneksi, "DELETE FROM tb_produk WHERE id = $id");
+
+    return mysqli_affected_rows($koneksi);
+}
+
 function upload()
 {
     $namaFile = $_FILES['gambar_produk']['name'];

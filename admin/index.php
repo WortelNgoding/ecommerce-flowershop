@@ -66,7 +66,7 @@ $dataProduk = query("SELECT * FROM tb_produk");
                                     <td><img src="../product_images/<?= $row["gambar"] ?>" alt=""   ></td>
                                     <td class="aksi">
                                         <a href=""><button class="btn-edit"><i class="fas fa-pen"></i></button></a>
-                                        <a href=""><button class="btn-hapus"><i class="fas fa-trash"></i></button></a>
+                                        <a href="hapus_produk.php?id=<?= $row['id']; ?>"><button class="btn-hapus"><i class="fas fa-trash"></i></button></a>
                                     </td>
                                 <?php $i++; ?>
                                 <?php endforeach; ?>
