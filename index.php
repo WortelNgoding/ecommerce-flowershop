@@ -37,7 +37,7 @@
         </nav>
 
         <div class="icons">
-            <a href="login.html" class="fa-solid fa-circle-user"></a>
+            <a href="login.php" class="fa-solid fa-circle-user"></a>
         </div>
 
     </header>
