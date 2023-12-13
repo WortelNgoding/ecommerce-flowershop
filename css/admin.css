@@ -82,6 +82,7 @@ nav .fas {
 .logout {
     position: absolute;
     bottom: 50px;
+    color: red;
 }
 
 .container {
@@ -281,6 +282,10 @@ table thead tr {
 
 .button-3:hover {
     background-color: #2c974b;
+}
+
+.button-3 a{
+    color: #fff;
 }
 
 .button-3:focus {

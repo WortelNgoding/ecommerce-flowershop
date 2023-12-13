@@ -17,7 +17,7 @@
                         <i class="fas fa-menorah"></i>
                         <span class="nav-item">Dashboard</span>
                     </a></li>
-                <li><a href="#" class="logout">
+                <li><a href="../logout.php" class="logout">
                         <i class="fas fa-sign-out-alt"></i>
                         <span class="nav-item">Log out</span>
                     </a></li>
@@ -34,7 +34,7 @@
             <section class="attendance">
                 <div class="attendance-list">
                     <h1>List Produk</h1>
-                    <div class="button-3">Tambah</div>
+                    <div class="button-3"><a href="tambah_produk.php">Tambah</a></div>
                     <table class="table">
                         <thead>
                             <tr>
