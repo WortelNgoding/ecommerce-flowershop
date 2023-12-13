@@ -62,11 +62,11 @@ $dataProduk = query("SELECT * FROM tb_produk");
                                     <?php foreach ($dataProduk as $row) :  ?>
                                         <td><?= $i ?></td>
                                         <td><?= $row["nama"] ?></td>
-                                        <td><?= $row["harga"] ?></td>
+                                        <td>Rp.<?= number_format($row["harga"])  ?></td>
                                         <td><?= $row["deskripsi"] ?></td>
                                         <td><img src="../product_images/<?= $row["gambar"] ?>" alt=""></td>
                                         <td class="aksi">
-                                            <a href=""><button class="btn-edit"><i class="fas fa-pen"></i></button></a>
+                                            <a href="edit_produk.php?id=<?= $row['id'] ?>"><button class="btn-edit"><i class="fas fa-pen"></i></button></a>
                                             <a href="hapus_produk.php?id=<?= $row['id']; ?>"><button class="btn-hapus"><i class="fas fa-trash"></i></button></a>
                                         </td>
                                         <?php $i++; ?>

@@ -53,6 +53,46 @@ function tambahProduk($data)
     return mysqli_affected_rows($koneksi);
 }
 
+function editProduk($data)
+{
+    global $koneksi;
+
+    $id = $data["id"];
+
+    $nama_produk = htmlspecialchars($data["nama_produk"]);
+    $harga_produk = htmlspecialchars($data["harga_produk"]);
+    $deskripsi_produk = htmlspecialchars($data["deksripsi_produk"]);
+    $gambarLama = htmlspecialchars($data["gambarLama"]);
+
+    if ($_FILES['gambar_produk']['error'] === 4) {
+        $gambar = $gambarLama;
+    } else {
+        $result = mysqli_query($koneksi, "SELECT gambar FROM tb_produk WHERE id = $id");
+        $file = mysqli_fetch_assoc($result);
+
+        $fileName = implode('.', $file);
+        unlink('../product_images/' . $fileName);
+
+        $gambar = upload();
+
+        if ($gambar === false) {
+            $gambar = $gambarLama;
+        }
+    }
+
+    $query = "UPDATE tb_produk SET
+            nama = '$nama_produk',
+            harga = '$harga_produk',
+            deskripsi = '$deskripsi_produk',
+            gambar = '$gambar'
+            WHERE id = $id
+            ";
+
+    mysqli_query($koneksi, $query);
+
+    return mysqli_affected_rows($koneksi);
+}
+
 function hapusProduk($id)
 {
     global $koneksi;
