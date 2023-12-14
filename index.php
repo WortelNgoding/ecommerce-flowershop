@@ -53,7 +53,7 @@
             <span> natural & beautiful flowers </span>
             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Baetae laborum ut minus
             corrupti dolorum dolore assumenda iste voluptate dolorem pariatur.</p>
-            <a href="allprod.html" class="btn">shop now</a>
+            <a href="allprod.php" class="btn">shop now</a>
         </div>
 
     </section>

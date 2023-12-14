@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,40 +9,70 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
 </head>
+
 <body>
     <section class="products" id="products">
 
-    <!--- header section start --->
+        <!--- header section start --->
 
-    <header>
-        <!--- logo --->
-        <a href="#" class="logo"><i class="fa-sharp fa-regular fa-flower-tulip"></i> Our Products</a>
+        <header>
+            <!--- logo --->
+            <a href="#" class="logo"><i class="fa-sharp fa-regular fa-flower-tulip"></i> Our Products</a>
 
-        <div id="menu" class="fa-solid fa-bars"></div>
+            <div id="menu" class="fa-solid fa-bars"></div>
 
-        <nav class="navbar">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="index.html#about">About</a></li>
-                <li><a class="active" href="#product">Product</a></li>
-                <li><a href="index.html#review">Review</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
-                <li><a href=""><i class="bi bi-search"></i> </a></li>
-                <li><a href=""><i class="bi bi-cart-fill"></i></a></li>
-                <li><a href=""><i class="bi bi-suit-heart-fill"></i></a></li>
-                <!--- <a href="index.php"><ion-icon name="person-circle-outline"></ion-icon></a> --->
-            </ul>
-        </nav>
-    </header>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a class="active" href="#product">Product</a></li>
+                    <li><a href="index.html#review">Review</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                    <li><a href=""><i class="bi bi-search"></i> </a></li>
+                    <li><a href="" id="shopping-cart-button"><i class="bi bi-cart-fill"></i></a></li>
+                    <li><a href=""><i class="bi bi-suit-heart-fill"></i></a></li>
+                </ul>
+            </nav>
 
-     <!--- search bar start --->
-     <form action="" method="POST" class="search-form">
-        <input type="search" name="search" placeholder="search here.." autocomplete="off">
-        <label for="search-box" class="bi bi-search"></label>
-    </form>  
-    <!--- search bar end --->
+            <!-- Shopping cart start -->
+            <div class="shopping-cart">
+                <div class="cart-item">
+                    <img src="./product_images/65793cee64f21.jpg" alt="">
+                    <div class="item-detail">
+                        <h3>Product 1 </h3>
+                        <div class="item-price">Rp. 200,000</div>
+                    </div>
+                    <i class="fas fa-trash remove-item"></i>
+                </div>
+                <div class="cart-item">
+                    <img src="./product_images/65793cee64f21.jpg" alt="">
+                    <div class="item-detail">
+                        <h3>Product 1 </h3>
+                        <div class="item-price">Rp. 200,000</div>
+                    </div>
+                    <i class="fas fa-trash remove-item"></i>
+                </div>
+                <div class="cart-item">
+                    <img src="./product_images/65793cee64f21.jpg" alt="">
+                    <div class="item-detail">
+                        <h3>Product 1 </h3>
+                        <div class="item-price">Rp. 200,000</div>
+                    </div>
+                    <i class="fas fa-trash remove-item"></i>
+                </div>
+            </div>
+            <!-- Shopping cart end -->
 
-    <!--- header section end --->
+        </header>
+
+        <!--- search bar start --->
+        <form action="" method="POST" class="search-form">
+            <input type="search" name="search" placeholder="search here.." autocomplete="off">
+            <label for="search-box" class="bi bi-search"></label>
+        </form>
+        <!--- search bar end --->
+
+        <!--- header section end --->
 
         <h1 class="heading">Products</h1>
         <h1 class="title">Affordable Products at Great Price</h1>
@@ -192,7 +223,8 @@
                 </div>
             </div>
 
-        </section>
-    </body>
-    <script src="js/main.js"></script>
+    </section>
+</body>
+
+<script src="js/script.js"></script>
 </html>

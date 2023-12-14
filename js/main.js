@@ -55,3 +55,4 @@ window.onscroll = () =>{
     searchForm.classList.remove('active');
     navbar.classList.remove('active');
 };
+
