@@ -1,3 +1,16 @@
+<?php
+
+require 'functions.php';
+
+$dataProduk = query("SELECT * FROM tb_produk");
+
+$jsonData = json_encode($dataProduk);
+
+// Pass the JSON data to JavaScript using a script tag
+echo "<script>window.productsData = $jsonData;</script>";
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,6 +21,13 @@
     <link rel="stylesheet" href="css/allprod.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    <!-- Alpine.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!-- Money Alpine -->
+    <script defer src="https://unpkg.com/alpinejs-money@latest/dist/money.min.js"></script>
+    <!-- App -->
+    <script src="src/app.js"></script>
+
 </head>
 
 <body>
@@ -15,50 +35,68 @@
 
         <!--- header section start --->
 
-        <header>
+        <header x-data>
             <!--- logo --->
             <a href="#" class="logo"><i class="fa-sharp fa-regular fa-flower-tulip"></i> Our Products</a>
 
             <div id="menu" class="fa-solid fa-bars"></div>
 
-            <nav class="navbar">
+            <nav class="navbar" >
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="index.html#about">About</a></li>
                     <li><a class="active" href="#product">Product</a></li>
                     <li><a href="index.html#review">Review</a></li>
                     <li><a href="index.html#contact">Contact</a></li>
-                    <li><a href=""><i class="bi bi-search"></i> </a></li>
-                    <li><a href="" id="shopping-cart-button"><i class="bi bi-cart-fill"></i></a></li>
-                    <li><a href=""><i class="bi bi-suit-heart-fill"></i></a></li>
+                    <li><a href=""><i class="fa-solid fa-magnifying-glass"></i> </a></li>
+                    <li>
+                        <a href="#" id="shopping-cart-button">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        <span class="quantity-badge" x-show="$store.cart.quantity" x-text="$store.cart.quantity"></span>
+                        </a>
+                    </li>
                 </ul>
             </nav>
 
             <!-- Shopping cart start -->
             <div class="shopping-cart">
-                <div class="cart-item">
-                    <img src="./product_images/65793cee64f21.jpg" alt="">
-                    <div class="item-detail">
-                        <h3>Product 1 </h3>
-                        <div class="item-price">Rp. 200,000</div>
+                <template x-for="(item, index) in $store.cart.items" x-key="index">
+                    <div class="cart-item">
+                        <img :src="`./product_images/${item.gambar}`" :alt="item.name">
+                        <div class="item-detail">
+                            <h3 x-text="item.name"></h3>
+                            <div class="item-price">
+                                <span x-text="rupiah(item.harga)"></span> &times;
+                                <button id="remove" @click="$store.cart.remove(item.id)">&minus;</button>
+                                <span x-text="item.quantity"></span>
+                                <button id="add" @click="$store.cart.add(item)">&plus;</button> &equals;
+                                <span x-text="rupiah(item.total)"></span>
+                            </div>
+                        </div>
                     </div>
-                    <i class="fas fa-trash remove-item"></i>
-                </div>
-                <div class="cart-item">
-                    <img src="./product_images/65793cee64f21.jpg" alt="">
-                    <div class="item-detail">
-                        <h3>Product 1 </h3>
-                        <div class="item-price">Rp. 200,000</div>
-                    </div>
-                    <i class="fas fa-trash remove-item"></i>
-                </div>
-                <div class="cart-item">
-                    <img src="./product_images/65793cee64f21.jpg" alt="">
-                    <div class="item-detail">
-                        <h3>Product 1 </h3>
-                        <div class="item-price">Rp. 200,000</div>
-                    </div>
-                    <i class="fas fa-trash remove-item"></i>
+                </template>
+                <h4 x-show="!$store.cart.items.length" style="margin-top: 1rem;">Cart is empty!</h4>
+                <h4 x-show="$store.cart.items.length">Total : <span x-text="rupiah($store.cart.total)"></span></h4>
+
+                <div x-show="$store.cart.items.length"  class="form-container">
+                    <form action="" id="checkoutForm">
+                        <h5>Customer Detail</h5>
+
+                        <label for="name">
+                            <span>Name</span>
+                            <input type="text" name="name" id="name">
+                        </label>
+                        <label for="email">
+                            <span>Email</span>
+                            <input type="email" name="email" id="email">
+                        </label>
+                        <label for="phone">
+                            <span>Phone</span>
+                            <input type="number" name="phone" id="phone" autocomplete="off">
+                        </label>
+
+                        <button class="checkout-button" type="submit" id="checkout-button" value="checkout">Checkout</button>
+                    </form>
                 </div>
             </div>
             <!-- Shopping cart end -->
@@ -76,155 +114,26 @@
 
         <h1 class="heading">Products</h1>
         <h1 class="title">Affordable Products at Great Price</h1>
-        <div class="box-container">
-
-
-            <div class="box">
-                <span class="discount">15%</span>
-                <div class="image">
-                    <img src="images/product 1.jpg" alt="">
-                    <div class="icons">
-                        <a href="heartpop.html" class="fa-solid fa-heart"></a>
-                        <a href="addcart.html" class="cart-btn">add to cart</a>
-                        <a href="detailprod.html" class="fa-solid fa-bag-shopping"></a>
+        <div class="box-container products" id="products" x-data="products">
+            <template x-for="(item, index) in items" x-key="index">
+                <div class="box">
+                    <div class="image">
+                        <img :src="`product_images/${item.gambar}`" :alt="`${item.nama}`">
+                        <div class="icons">
+                            <a href="" class="fa-solid fa-heart"></a>
+                            <a href="#" class="fa-solid fa-bag-shopping" @click.prevent="$store.cart.add(item)"></a>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h3 x-text="item.nama"></h3>
+                        <div x-text="rupiah(item.harga)" class="price"></div>
                     </div>
                 </div>
-                <div class="content">
-                    <h3>tulip bucket</h3>
-                    <div class="price">Rp 135.000 <span>Rp 150.000</span> </div>
-                </div>
-            </div>
-
-            <div class="box">
-                <span class="discount">5%</span>
-                <div class="image">
-                    <img src="images/product 2.jpg" alt="">
-                    <div class="icons">
-                        <a href="heartpop.html" class="fa-solid fa-heart"></a>
-                        <a href="addcart.html" class="cart-btn">add to cart</a>
-                        <a href="" class="fa-solid fa-bag-shopping"></a>
-                    </div>
-                </div>
-                <div class="content">
-                    <h3>tulip flower's</h3>
-                    <div class="price">Rp 145.000 <span>Rp 150.000</span> </div>
-                </div>
-            </div>
-
-            <div class="box">
-                <span class="discount">10%</span>
-                <div class="image">
-                    <img src="images/product 3.jpg" alt="">
-                    <div class="icons">
-                        <a href="heartpop.html" class="fa-solid fa-heart"></a>
-                        <a href="addcart.html" class="cart-btn">add to cart</a>
-                        <a href="" class="fa-solid fa-bag-shopping"></a>
-                    </div>
-                </div>
-                <div class="content">
-                    <h3>mawar flower's</h3>
-                    <div class="price">Rp 140.000 <span>Rp 150.000</span> </div>
-                </div>
-            </div>
-
-            <div class="box">
-                <span class="discount">10%</span>
-                <div class="image">
-                    <img src="images/product 4.jpg" alt="">
-                    <div class="icons">
-                        <a href="heartpop.html" class="fa-solid fa-heart"></a>
-                        <a href="addcart.html" class="cart-btn">add to cart</a>
-                        <a href="" class="fa-solid fa-bag-shopping"></a>
-                    </div>
-                </div>
-                <div class="content">
-                    <h3>mawar bucket</h3>
-                    <div class="price">Rp 199.990 <span>Rp 200.000</span> </div>
-                </div>
-            </div>
-
-            <div class="box">
-                <span class="discount">20%</span>
-                <div class="image">
-                    <img src="images/product 5.jpg" alt="">
-                    <div class="icons">
-                        <a href="heartpop.html" class="fa-solid fa-heart"></a>
-                        <a href="addcart.html" class="cart-btn">add to cart</a>
-                        <a href="" class="fa-solid fa-bag-shopping"></a>
-                    </div>
-                </div>
-                <div class="content">
-                    <h3>pinky mawar</h3>
-                    <div class="price">Rp 199.980 <span>Rp 200.000</span> </div>
-                </div>
-            </div>
-
-            <div class="box">
-                <span class="discount">0%</span>
-                <div class="image">
-                    <img src="images/product 6.jpg" alt="">
-                    <div class="icons">
-                        <a href="heartpop.html" class="fa-solid fa-heart"></a>
-                        <a href="addcart.html" class="cart-btn">add to cart</a>
-                        <a href="" class="fa-solid fa-bag-shopping"></a>
-                    </div>
-                </div>
-                <div class="content">
-                    <h3>bucket pinky mawar's</h3>
-                    <div class="price">Rp 200.000 <span>Rp 0</span> </div>
-                </div>
-            </div>
-
-            <div class="box">
-                <span class="discount">30%</span>
-                <div class="image">
-                    <img src="images/product 7.jpg" alt="">
-                    <div class="icons">
-                        <a href="heartpop.html" class="fa-solid fa-heart"></a>
-                        <a href="addcart.html" class="cart-btn">add to cart</a>
-                        <a href="" class="fa-solid fa-bag-shopping"></a>
-                    </div>
-                </div>
-                <div class="content">
-                    <h3>flower pot doll's</h3>
-                    <div class="price">Rp 149.970 <span>Rp 150.000</span> </div>
-                </div>
-            </div>
-
-            <div class="box">
-                <span class="discount">17%</span>
-                <div class="image">
-                    <img src="images/product 8.jpg" alt="">
-                    <div class="icons">
-                        <a href="heartpop.html" class="fa-solid fa-heart"></a>
-                        <a href="addcart.html" class="cart-btn">add to cart</a>
-                        <a href="" class="fa-solid fa-bag-shopping"></a>
-                    </div>
-                </div>
-                <div class="content">
-                    <h3>tulip doll's</h3>
-                    <div class="price">Rp 150.000 <span>Rp 133.000</span> </div>
-                </div>
-            </div>
-
-            <div class="box">
-                <span class="discount">0%</span>
-                <div class="image">
-                    <img src="images/product 9.jpg" alt="">
-                    <div class="icons">
-                        <a href="heartpop.html" class="fa-solid fa-heart"></a>
-                        <a href="addcart.html" class="cart-btn">add to cart</a>
-                        <a href="" class="fa-solid fa-bag-shopping"></a>
-                    </div>
-                </div>
-                <div class="content">
-                    <h3>sun flower doll's</h3>
-                    <div class="price">Rp 150.000 <span>Rp 0</span> </div>
-                </div>
-            </div>
-
+            </template>
     </section>
 </body>
 
 <script src="js/script.js"></script>
+
+
 </html>
