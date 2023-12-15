@@ -51,7 +51,7 @@ if (isset($_POST["submit"])) {
             </div>
             <button type="submit" name="submit">Sign Up</button>
             <div class="register">
-                <p>Already Have An Account?<a href="login.html"> Log In</a></p>
+                <p>Already Have An Account?<a href="login.php"> Log In</a></p>
             </div>
         </form>
     </section>
