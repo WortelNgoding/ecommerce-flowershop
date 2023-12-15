@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial=1.0">
-    <title>E-Commerce Bunga</title>
+    <title>FlowerShop!</title>
 
     <!--- font awasome cdn link --->
 
@@ -26,7 +26,7 @@
         <input type="checkbox" name="" id="toggler">
         <label for="toggler" class="fa-solid fa-bars"></label>
 
-        <a href="#" class="logo">flower <span>.</span></a>
+        <a href="#" class="logo">FlowerShop<span>.</span></a>
 
         <nav class="navbar">
             <a href="#home">Home</a> 
