@@ -25,7 +25,7 @@ function tambahUser($data)
     $password =  htmlspecialchars($data["password"]);
     $password = md5($password);
 
-    $query = "INSERT INTO tb_user VALUES ('', '$username', '$email', '$password', 'user')";
+    $query = "INSERT INTO tb_user VALUES ('', '$email', '$username', '$password', 'user')";
 
     mysqli_query($koneksi, $query);
 
