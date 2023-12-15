@@ -81,8 +81,8 @@ function editProduk($data)
     }
 
     $query = "UPDATE tb_produk SET
-            nama = '$nama_produk',
-            harga = '$harga_produk',
+            name = '$nama_produk',
+            price = '$harga_produk',
             deskripsi = '$deskripsi_produk',
             gambar = '$gambar'
             WHERE id = $id

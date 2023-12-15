@@ -51,7 +51,7 @@ if (isset($_POST['submit'])) {
                     <label for="nama"> Nama</label>
                 </div>
                 <div class="col-75">
-                    <input type="text" id="nama" name="nama_produk" value="<?= $data["nama"] ?>" placeholder="Nama Produk...">
+                    <input type="text" id="nama" name="nama_produk" value="<?= $data["name"] ?>" placeholder="Nama Produk...">
                 </div>
             </div>
             <div class="row">
@@ -59,7 +59,7 @@ if (isset($_POST['submit'])) {
                     <label for="harga">Harga</label>
                 </div>
                 <div class="col-75">
-                    <input type="text" id="harga" name="harga_produk" value="<?= $data["harga"] ?>" placeholder="Harga Produk...">
+                    <input type="text" id="harga" name="harga_produk" value="<?= $data["price"] ?>" placeholder="Harga Produk...">
                 </div>
             </div>
             <div class="row">
