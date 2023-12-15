@@ -389,16 +389,19 @@
 
     <section class="contact" id="contact">
 
-        <h1 class="heading"> <span> contact </span> us </h1>
+        <h1 class="heading"> <span> Contact </span> IUs </h1>
 
         <div class="row">
 
-            <form action="chtpop.html">
-                <input type="text" placeholder="name" class="box">
-                <input type="email" placeholder="email" class="box">
-                <input type="number" placeholder="number" class="box">
-                <textarea name="" class="box" placeholder="message" id="" cols="30" rows="10"></textarea>
-                <input type="submit" value="send message" class="btn">
+            <form action="https://formsubmit.co/firza7004@gmail.com" method="post" >
+                <!-- Params Start -->
+                <input type="hidden" name="_captcha" value="false">
+                <!-- Params End -->
+                <input type="text" name="name" placeholder="Your Name..." class="box">
+                <input type="email" name="email" placeholder="Your Email.." class="box">
+                <input type="number" name="number"  placeholder="Your Number..." class="box">
+                <textarea name="" class="box" placeholder="Message" id="" cols="30" rows="10"></textarea>
+                <input type="submit" value="Send Message" class="btn">
             </form>
 
             <div class="image">

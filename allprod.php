@@ -6,7 +6,7 @@ $dataProduk = query("SELECT * FROM tb_produk");
 
 $jsonData = json_encode($dataProduk);
 
-// Pass JSON Data using tag script 
+// Pass JSON Data using tag script
 echo "<script>window.productsData = $jsonData;</script>";
 
 ?>
@@ -117,7 +117,7 @@ echo "<script>window.productsData = $jsonData;</script>";
 
         <!--- header section end --->
 
-        <h1 class="heading">Products</h1>   
+        <h1 class="heading">Products</h1>
         <div class="box-container products" id="products" x-data="products">
             <template x-for="(item, index) in items" x-key="index">
                 <div class="box">
