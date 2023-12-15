@@ -30,7 +30,8 @@ echo "<script>window.productsData = $jsonData;</script>";
 
 
     <script type="text/javascript" src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="SB-Mid-client-eBEN4efXr2IEWUKY"></script>
-
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="https://i.pinimg.com/564x/cf/af/12/cfaf12db839a6edb74e5627ede4ad9ff.jpg" type="image/x-icon">
 </head>
 
 <body>
