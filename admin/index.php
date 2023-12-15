@@ -62,8 +62,8 @@ $dataProduk = query("SELECT * FROM tb_produk");
                                 <?php foreach ($dataProduk as $produk) :  ?>
                                 <tr>
                                         <td><?= $i ?></td>
-                                        <td><?= $produk["nama"] ?></td>
-                                        <td>Rp.<?= number_format($produk["harga"])  ?></td>
+                                        <td><?= $produk["name"] ?></td>
+                                        <td>Rp.<?= number_format($produk["price"])  ?></td>
                                         <td><?= $produk["deskripsi"] ?></td>
                                         <td><img src="../product_images/<?= $produk["gambar"] ?>" alt=""></td>
                                         <td class="aksi">
