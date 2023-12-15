@@ -401,7 +401,7 @@
                 <input type="text" name="name" placeholder="Your Name..." class="box">
                 <input type="email" name="email" placeholder="Your Email.." class="box">
                 <input type="number" name="number"  placeholder="Your Number..." class="box">
-                <textarea name="" class="box" placeholder="Message" id="" cols="30" rows="10"></textarea>
+                <textarea name="message" class="box" placeholder="Message" id="" cols="30" rows="10"></textarea>
                 <input type="submit" value="Send Message" class="btn">
             </form>
 
