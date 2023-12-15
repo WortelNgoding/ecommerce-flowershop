@@ -60,6 +60,27 @@ document.addEventListener('alpine:init', () => {
     })
 })
 
+// form validation 
+const checkoutButton = document.querySelector('.checkout-button');
+checkoutButton.disabled = true;
+
+const form = document.querySelector('#checkoutForm');
+form.addEventListener('keyup', function() {
+    for (let i = 0; i < form.elements.length ; i++) {
+        if (form.elements[i].value.length !== 0 ) {
+            checkoutButton.classList.remove('disabled');
+            checkoutButton.classList.add('disabled');
+        } else {
+            return false;
+        }
+    }
+
+    checkoutButton.disabled = false;
+    checkoutButton.classList.remove('disabled');
+})
+
+
+
 // konversi ke rupiah
 
 const rupiah = (number) => {
@@ -69,4 +90,3 @@ const rupiah = (number) => {
         minimumFractionDigits: 0,
     }).format(number);
 }
-

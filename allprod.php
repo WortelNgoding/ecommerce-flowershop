@@ -6,7 +6,7 @@ $dataProduk = query("SELECT * FROM tb_produk");
 
 $jsonData = json_encode($dataProduk);
 
-// Pass the JSON data to JavaScript using a script tag
+// Pass JSON Data using tag script 
 echo "<script>window.productsData = $jsonData;</script>";
 
 ?>
@@ -26,7 +26,7 @@ echo "<script>window.productsData = $jsonData;</script>";
     <!-- Money Alpine -->
     <script defer src="https://unpkg.com/alpinejs-money@latest/dist/money.min.js"></script>
     <!-- App -->
-    <script src="src/app.js"></script>
+    <script src="src/app.js" async></script>
 
 </head>
 
@@ -41,7 +41,7 @@ echo "<script>window.productsData = $jsonData;</script>";
 
             <div id="menu" class="fa-solid fa-bars"></div>
 
-            <nav class="navbar" >
+            <nav class="navbar">
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="index.html#about">About</a></li>
@@ -52,7 +52,7 @@ echo "<script>window.productsData = $jsonData;</script>";
                     <li>
                         <a href="#" id="shopping-cart-button">
                             <i class="fa-solid fa-cart-shopping"></i>
-                        <span class="quantity-badge" x-show="$store.cart.quantity" x-text="$store.cart.quantity"></span>
+                            <span class="quantity-badge" x-show="$store.cart.quantity" x-text="$store.cart.quantity"></span>
                         </a>
                     </li>
                 </ul>
@@ -78,8 +78,9 @@ echo "<script>window.productsData = $jsonData;</script>";
                 <h4 x-show="!$store.cart.items.length" style="margin-top: 1rem;">Cart is empty!</h4>
                 <h4 x-show="$store.cart.items.length">Total : <span x-text="rupiah($store.cart.total)"></span></h4>
 
-                <div x-show="$store.cart.items.length"  class="form-container">
+                <div x-show="$store.cart.items.length" class="form-container">
                     <form action="" id="checkoutForm">
+                       
                         <h5>Customer Detail</h5>
 
                         <label for="name">
@@ -95,7 +96,7 @@ echo "<script>window.productsData = $jsonData;</script>";
                             <input type="number" name="phone" id="phone" autocomplete="off">
                         </label>
 
-                        <button class="checkout-button" type="submit" id="checkout-button" value="checkout">Checkout</button>
+                        <button class="checkout-button disabled" type="submit" id="checkout-button" value="checkout">Checkout</button>
                     </form>
                 </div>
             </div>
