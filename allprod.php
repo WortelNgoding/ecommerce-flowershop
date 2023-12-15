@@ -46,11 +46,11 @@ echo "<script>window.productsData = $jsonData;</script>";
 
             <nav class="navbar">
                 <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.php">Home</a></li>
+                    <li><a href="index.php#about">About</a></li>
                     <li><a class="active" href="#product">Product</a></li>
-                    <li><a href="index.html#review">Review</a></li>
-                    <li><a href="index.html#contact">Contact</a></li>
+                    <li><a href="index.php#review">Review</a></li>
+                    <li><a href="index.php#contact">Contact</a></li>
                     <li><a href=""><i class="fa-solid fa-magnifying-glass"></i> </a></li>
                     <li>
                         <a href="#" id="shopping-cart-button">
