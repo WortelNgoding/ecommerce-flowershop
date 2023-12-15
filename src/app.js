@@ -1,4 +1,5 @@
 document.addEventListener('alpine:init', () => {
+    
     Alpine.data('products', () => ({
         items: window.productsData || []
     }))
@@ -13,9 +14,9 @@ document.addEventListener('alpine:init', () => {
 
             // jika belum ada / cart masih kosong
             if (!cartItem) {
-                this.items.push({...newItem, quantity: 1, total: newItem.harga});
+                this.items.push({...newItem, quantity: 1, total: newItem.price});
                 this.quantity++;
-                this.total += parseInt(newItem.harga);  
+                this.total += parseInt(newItem.price);  
             } else {
                 // jika barang sudah ada, cek apakah barang beda atau sama dengan yang ada di cart
                 this.items = this.items.map((item) => {
@@ -24,9 +25,9 @@ document.addEventListener('alpine:init', () => {
                     } else {
                         // jika barang sudah ada, tambah quantity dan totalnya
                         item.quantity++
-                        item.total = item.harga * item.quantity;
+                        item.total = item.price * item.quantity;
                         this.quantity++;
-                        this.total += parseInt(newItem.harga);
+                        this.total += parseInt(newItem.price);
                         return item;
                     }
                 })
@@ -44,9 +45,9 @@ document.addEventListener('alpine:init', () => {
                         return item;
                     } else {
                         item.quantity--;
-                        item.total = parseInt(item.harga) * item.quantity;
+                        item.total = parseInt(item.price) * item.quantity;
                         this.quantity--;
-                        this.total -= parseInt(item.harga);
+                        this.total -= parseInt(item.price);
                         return item;
                     }
                 })
@@ -54,7 +55,7 @@ document.addEventListener('alpine:init', () => {
                 // jika barang sisa satu
                 this.items = this.items.filter((item) => item.id !== id);
                 this.quantity--;
-                this.total -= cartItem.harga;
+                this.total -= cartItem.price;
             }
         }
     })
@@ -80,27 +81,42 @@ form.addEventListener('keyup', function() {
 })
 
 // kirim data ketika tombol checkout diklik
-checkoutButton.addEventListener('click', function(e) {
+checkoutButton.addEventListener('click', async function(e) {
     e.preventDefault();
     const formData = new FormData(form);
     const data = new URLSearchParams(formData);
     const objData = Object.fromEntries(data);
-    const message = formatMessage(objData);
-    window.open('http://wa.me/6285732680197?text=' + encodeURIComponent(message));
-})
 
-// format pesan whatsapp
-const formatMessage = (obj) => {
-    return `Data Customer
-        Nama : ${obj.name}
-        Email : ${obj.email}
-        No HP : ${obj.phone}
-    Data Pesanan 
-        ${JSON.parse(obj.items).map((item) => `${item.nama} (${item.quantity} x ${rupiah(item.total)}) \n `)}
-    Total : ${rupiah(obj.total)}
-    Terima kasih!`
+    //! const message = formatMessage(objData);
+    //! window.open('http://wa.me/6285732680197?text=' + encodeURIComponent(message));
 
-}
+    try {
+        const response = await fetch('./midtrans-server/placeOrder.php', {
+            method: 'POST',
+            body: data,
+        });
+        const token = await response.text();
+        // console.log(token);
+        window.snap.pay(token);
+    } catch (err) {
+        console.log(err.message);
+    }
+
+
+});
+
+//! format pesan whatsapp
+// const formatMessage = (obj) => {
+//     return `Data Customer
+//         Nama : ${obj.name}
+//         Email : ${obj.email}
+//         No HP : ${obj.phone}
+//     Data Pesanan 
+//         ${JSON.parse(obj.items).map((item) => `${item.nama} (${item.quantity} x ${rupiah(item.total)}) \n `)}
+//     Total : ${rupiah(obj.total)}
+//     Terima kasih!`
+
+// }
 
 // konversi ke rupiah
 

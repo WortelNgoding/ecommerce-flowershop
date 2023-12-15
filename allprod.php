@@ -28,6 +28,7 @@ echo "<script>window.productsData = $jsonData;</script>";
     <!-- App -->
     <script src="src/app.js" async></script>
 
+    <script type="text/javascript" src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="SET_YOUR_CLIENT_KEY_HERE"></script>
 </head>
 
 <body>
@@ -66,7 +67,7 @@ echo "<script>window.productsData = $jsonData;</script>";
                         <div class="item-detail">
                             <h3 x-text="item.name"></h3>
                             <div class="item-price">
-                                <span x-text="rupiah(item.harga)"></span> &times;
+                                <span x-text="rupiah(item.price)"></span> &times;
                                 <button id="remove" @click="$store.cart.remove(item.id)">&minus;</button>
                                 <span x-text="item.quantity"></span>
                                 <button id="add" @click="$store.cart.add(item)">&plus;</button> &equals;
@@ -128,7 +129,7 @@ echo "<script>window.productsData = $jsonData;</script>";
                     </div>
                     <div class="content">
                         <h3 x-text="item.nama"></h3>
-                        <div x-text="rupiah(item.harga)" class="price"></div>
+                        <div x-text="rupiah(item.price)" class="price"></div>
                     </div>
                 </div>
             </template>
