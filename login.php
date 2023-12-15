@@ -4,8 +4,9 @@ require 'koneksi.php';
 
 // menangkap data yang dikirim dari form login
 if (isset($_POST['login'])) {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+    $username = htmlspecialchars($_POST['username']);
+    $password = htmlspecialchars($_POST['password']);
+    $password = md5($password);
     // menyeleksi data user dengan username dan password yang sesuai
     $login = mysqli_query($koneksi, "SELECT * FROM tb_user WHERE username= '$username' and password= '$password'");
     //menghitung jumlah data yang ditemukan

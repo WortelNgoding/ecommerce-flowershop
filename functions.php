@@ -23,6 +23,7 @@ function tambahUser($data)
     $username = htmlspecialchars($data["username"]);
     $email =  htmlspecialchars($data["email"]);
     $password =  htmlspecialchars($data["password"]);
+    $password = md5($password);
 
     $query = "INSERT INTO tb_user VALUES ('', '$username', '$email', '$password', 'user')";
 
