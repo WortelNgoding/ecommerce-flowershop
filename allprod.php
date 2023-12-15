@@ -28,7 +28,9 @@ echo "<script>window.productsData = $jsonData;</script>";
     <!-- App -->
     <script src="src/app.js" async></script>
 
-    <script type="text/javascript" src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="SET_YOUR_CLIENT_KEY_HERE"></script>
+
+    <script type="text/javascript" src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="SB-Mid-client-eBEN4efXr2IEWUKY"></script>
+
 </head>
 
 <body>
