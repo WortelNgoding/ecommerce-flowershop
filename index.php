@@ -396,6 +396,7 @@
             <form action="https://formsubmit.co/firza7004@gmail.com" method="post" >
                 <!-- Params Start -->
                 <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_next" value="http://localhost/ecom_bunga/form_response.php">
                 <!-- Params End -->
                 <input type="text" name="name" placeholder="Your Name..." class="box">
                 <input type="email" name="email" placeholder="Your Email.." class="box">
