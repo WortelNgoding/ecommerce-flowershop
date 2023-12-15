@@ -389,7 +389,7 @@
 
     <section class="contact" id="contact">
 
-        <h1 class="heading"> <span> Contact </span> IUs </h1>
+        <h1 class="heading"> <span> Contact </span> Us </h1>
 
         <div class="row">
 
@@ -397,6 +397,7 @@
                 <!-- Params Start -->
                 <input type="hidden" name="_captcha" value="false">
                 <input type="hidden" name="_next" value="http://localhost/ecom_bunga/form_response.php">
+                <input type="hidden" name="_template" value="table">
                 <!-- Params End -->
                 <input type="text" name="name" placeholder="Your Name..." class="box">
                 <input type="email" name="email" placeholder="Your Email.." class="box">
