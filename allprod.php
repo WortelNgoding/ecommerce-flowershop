@@ -117,8 +117,7 @@ echo "<script>window.productsData = $jsonData;</script>";
 
         <!--- header section end --->
 
-        <h1 class="heading">Products</h1>
-        <h1 class="title">Affordable Products at Great Price</h1>
+        <h1 class="heading">Products</h1>   
         <div class="box-container products" id="products" x-data="products">
             <template x-for="(item, index) in items" x-key="index">
                 <div class="box">
@@ -130,7 +129,7 @@ echo "<script>window.productsData = $jsonData;</script>";
                         </div>
                     </div>
                     <div class="content">
-                        <h3 x-text="item.nama"></h3>
+                        <h3 x-text="item.name"></h3>
                         <div x-text="rupiah(item.price)" class="price"></div>
                     </div>
                 </div>
