@@ -79,7 +79,28 @@ form.addEventListener('keyup', function() {
     checkoutButton.classList.remove('disabled');
 })
 
+// kirim data ketika tombol checkout diklik
+checkoutButton.addEventListener('click', function(e) {
+    e.preventDefault();
+    const formData = new FormData(form);
+    const data = new URLSearchParams(formData);
+    const objData = Object.fromEntries(data);
+    const message = formatMessage(objData);
+    window.open('http://wa.me/6285732680197?text=' + encodeURIComponent(message));
+})
 
+// format pesan whatsapp
+const formatMessage = (obj) => {
+    return `Data Customer
+        Nama : ${obj.name}
+        Email : ${obj.email}
+        No HP : ${obj.phone}
+    Data Pesanan 
+        ${JSON.parse(obj.items).map((item) => `${item.nama} (${item.quantity} x ${rupiah(item.total)}) \n `)}
+    Total : ${rupiah(obj.total)}
+    Terima kasih!`
+
+}
 
 // konversi ke rupiah
 

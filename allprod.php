@@ -80,7 +80,8 @@ echo "<script>window.productsData = $jsonData;</script>";
 
                 <div x-show="$store.cart.items.length" class="form-container">
                     <form action="" id="checkoutForm">
-                       
+                        <input type="hidden" name="items" x-model="JSON.stringify($store.cart.items)">
+                        <input type="hidden" name="total" x-model="$store.cart.total">
                         <h5>Customer Detail</h5>
 
                         <label for="name">
