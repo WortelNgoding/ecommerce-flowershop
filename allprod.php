@@ -139,6 +139,7 @@ echo "<script>window.productsData = $jsonData;</script>";
 </body>
 
 <script src="js/script.js"></script>
+<script type="module">import 'dotenv/config';</script>
 
 
 </html>
