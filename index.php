@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,6 +17,7 @@
     <!-- favicon -->
     <link rel="shortcut icon" href="https://i.pinimg.com/564x/cf/af/12/cfaf12db839a6edb74e5627ede4ad9ff.jpg" type="image/x-icon">
 </head>
+
 <body>
 
     <!--- header section start --->
@@ -30,7 +30,7 @@
         <a href="#" class="logo">FlowerShop<span>.</span></a>
 
         <nav class="navbar">
-            <a href="#home">Home</a> 
+            <a href="#home">Home</a>
             <a href="#about">About</a>
             <a href="#products">Products</a>
             <a href="#review">Review</a>
@@ -53,7 +53,7 @@
             <h3>fresh flowers</h3>
             <span> natural & beautiful flowers </span>
             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Baetae laborum ut minus
-            corrupti dolorum dolore assumenda iste voluptate dolorem pariatur.</p>
+                corrupti dolorum dolore assumenda iste voluptate dolorem pariatur.</p>
             <a href="allprod.php" class="btn">shop now</a>
         </div>
 
@@ -77,13 +77,13 @@
             <div class="content">
                 <h3>why choose us?</h3>
                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Baetae laborum ut minus
-                corrupti dolorum dolore assumenda iste voluptate dolorem pariatur corporis 
-                perspiciatis aspernatur a ullam repudiandae autem asperiores quibusdam omnis commodi alias repellat illum
-                unde optio temproibus</p>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusantium ea est 
-                commodi indicidunt megni quia molestias perspicitasis unde repudiandae quidem</p>
+                    corrupti dolorum dolore assumenda iste voluptate dolorem pariatur corporis
+                    perspiciatis aspernatur a ullam repudiandae autem asperiores quibusdam omnis commodi alias repellat illum
+                    unde optio temproibus</p>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusantium ea est
+                    commodi indicidunt megni quia molestias perspicitasis unde repudiandae quidem</p>
                 <a href="#" class="btn">Learn More</a>
-        </div>
+            </div>
 
     </section>
 
@@ -94,7 +94,7 @@
     <section class="icons-container">
 
         <div class="icons">
-        <img src="images/icons 1.png">
+            <img src="images/icons 1.png">
             <div class="info">
                 <h3>free delivery</h3>
                 <span>on all orders</span>
@@ -103,27 +103,27 @@
 
         <div class="icons">
             <img src="images/icons 2.png">
-                <div class="info">
-                    <h3>10 days returns</h3>
-                    <span>moneyback guarantee</span>
-                </div>
+            <div class="info">
+                <h3>10 days returns</h3>
+                <span>moneyback guarantee</span>
             </div>
+        </div>
 
-            <div class="icons">
+        <div class="icons">
             <img src="images/icons 3.png">
-                <div class="info">
-                    <h3>offer & gift</h3>
-                    <span>on all orders</span>
-                </div>
+            <div class="info">
+                <h3>offer & gift</h3>
+                <span>on all orders</span>
             </div>
+        </div>
 
-                <div class="icons">
-                <img src="images/icons 4.png">
-                    <div class="info">
-                        <h3>secure paymens</h3>
-                        <span>protected by paypal</span>
-                    </div>
-                </div>
+        <div class="icons">
+            <img src="images/icons 4.png">
+            <div class="info">
+                <h3>secure paymens</h3>
+                <span>protected by paypal</span>
+            </div>
+        </div>
 
     </section>
 
@@ -304,9 +304,9 @@
                     <i class="fa-solid fa-star"></i>
                     <i class="fa-solid fa-star"></i>
                 </div>
-                <p>Lorem Ipsum is that it has a more-or-less normal distribution of letters, 
-                as opposed to using 'Content here, content here', making it look like readable English. 
-                Many desktop publishing packages and web page editors now use </p>
+                <p>Lorem Ipsum is that it has a more-or-less normal distribution of letters,
+                    as opposed to using 'Content here, content here', making it look like readable English.
+                    Many desktop publishing packages and web page editors now use </p>
                 <div class="user">
                     <img src="images/review 1.jpg" alt="">
                     <div class="user-info">
@@ -325,9 +325,9 @@
                     <i class="fa-solid fa-star"></i>
                     <i class="fa-solid fa-star"></i>
                 </div>
-                <p>Lorem Ipsum is that it has a more-or-less normal distribution of letters, 
-                as opposed to using 'Content here, content here', making it look like readable English. 
-                Many desktop publishing packages and web page editors now use </p>
+                <p>Lorem Ipsum is that it has a more-or-less normal distribution of letters,
+                    as opposed to using 'Content here, content here', making it look like readable English.
+                    Many desktop publishing packages and web page editors now use </p>
                 <div class="user">
                     <img src="images/review 2.jpg" alt="">
                     <div class="user-info">
@@ -346,9 +346,9 @@
                     <i class="fa-solid fa-star"></i>
                     <i class="fa-solid fa-star-half-stroke"></i>
                 </div>
-                <p>Lorem Ipsum is that it has a more-or-less normal distribution of letters, 
-                as opposed to using 'Content here, content here', making it look like readable English. 
-                Many desktop publishing packages and web page editors now use </p>
+                <p>Lorem Ipsum is that it has a more-or-less normal distribution of letters,
+                    as opposed to using 'Content here, content here', making it look like readable English.
+                    Many desktop publishing packages and web page editors now use </p>
                 <div class="user">
                     <img src="images/review 3.jpg" alt="">
                     <div class="user-info">
@@ -367,9 +367,9 @@
                     <i class="fa-solid fa-star"></i>
                     <i class="fa-solid fa-star-half-stroke"></i>
                 </div>
-                <p>Lorem Ipsum is that it has a more-or-less normal distribution of letters, 
-                as opposed to using 'Content here, content here', making it look like readable English. 
-                Many desktop publishing packages and web page editors now use </p>
+                <p>Lorem Ipsum is that it has a more-or-less normal distribution of letters,
+                    as opposed to using 'Content here, content here', making it look like readable English.
+                    Many desktop publishing packages and web page editors now use </p>
                 <div class="user">
                     <img src="images/review 4.jpg" alt="">
                     <div class="user-info">
@@ -394,7 +394,7 @@
 
         <div class="row">
 
-            <form action="https://formsubmit.co/firza7004@gmail.com" method="post" >
+            <form action="https://formsubmit.co/firza7004@gmail.com" method="post">
                 <!-- Params Start -->
                 <input type="hidden" name="_captcha" value="false">
                 <input type="hidden" name="_next" value="http://localhost/ecom_bunga/form_response.php">
@@ -402,7 +402,7 @@
                 <!-- Params End -->
                 <input type="text" name="name" placeholder="Your Name..." class="box">
                 <input type="email" name="email" placeholder="Your Email.." class="box">
-                <input type="number" name="number"  placeholder="Your Number..." class="box">
+                <input type="number" name="number" placeholder="Your Number..." class="box">
                 <textarea name="message" class="box" placeholder="Message" id="" cols="30" rows="10"></textarea>
                 <input type="submit" value="Send Message" class="btn">
             </form>
@@ -457,5 +457,7 @@
         </div>
 
     </section>
+</body>
 
-    <!--- footer section end --->
+</html>
+<!--- footer section end --->

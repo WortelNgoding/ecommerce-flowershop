@@ -1,0 +1,7 @@
+.env
+.env.test
+.env.*
+!.env.example
+node_modules
+composer.phar
+/vendor/
