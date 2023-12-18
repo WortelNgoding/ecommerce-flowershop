@@ -1,4 +1,11 @@
+<?php 
 
+require 'functions.php';
+
+$dataProduk = query("SELECT * FROM tb_produk ORDER BY id DESC")
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -136,150 +143,20 @@
         <h1 class="heading"> latest <span>products</span> </h1>
 
         <div class="box-container">
-
+            <?php foreach($dataProduk as $produk) : ?>
             <div class="box">
-                <span class="discount">10%</span>
                 <div class="image">
-                    <img src="images/product 1.jpg" alt="">
+                    <img src="product_images/<?= $produk["gambar"] ?>" alt="">
                     <div class="icons">
-                        <a href="#" class="fa-solid fa-heart"></a>
-                        <a href="#" class="cart-btn">add to cart</a>
-                        <a href="#" class="fa-solid fa-bag-shopping"></a>
+                        <a href="allprod.php" class="cart-btn">See Product</a>
                     </div>
                 </div>
                 <div class="content">
-                    <h3>flower pot</h3>
-                    <div class="price">Rp 150.000 <span>Rp 140.000</span> </div>
+                    <h3><?= $produk["name"] ?></h3>
+                    <div class="price">Rp. <?= number_format($produk["price"]) ?></div>
                 </div>
             </div>
-
-            <div class="box">
-                <span class="discount">5%</span>
-                <div class="image">
-                    <img src="images/product 2.jpg" alt="">
-                    <div class="icons">
-                        <a href="#" class="fa-solid fa-heart"></a>
-                        <a href="#" class="cart-btn">add to cart</a>
-                        <a href="#" class="fa-solid fa-bag-shopping"></a>
-                    </div>
-                </div>
-                <div class="content">
-                    <h3>flower pot</h3>
-                    <div class="price">Rp 150.000 <span>Rp 145.000</span> </div>
-                </div>
-            </div>
-
-            <div class="box">
-                <span class="discount">15%</span>
-                <div class="image">
-                    <img src="images/product 3.jpg" alt="">
-                    <div class="icons">
-                        <a href="#" class="fa-solid fa-heart"></a>
-                        <a href="#" class="cart-btn">add to cart</a>
-                        <a href="#" class="fa-solid fa-bag-shopping"></a>
-                    </div>
-                </div>
-                <div class="content">
-                    <h3>flower pot</h3>
-                    <div class="price">Rp 150.000 <span>Rp 135.000</span> </div>
-                </div>
-            </div>
-
-            <div class="box">
-                <span class="discount">20%</span>
-                <div class="image">
-                    <img src="images/product 4.jpg" alt="">
-                    <div class="icons">
-                        <a href="#" class="fa-solid fa-heart"></a>
-                        <a href="#" class="cart-btn">add to cart</a>
-                        <a href="#" class="fa-solid fa-bag-shopping"></a>
-                    </div>
-                </div>
-                <div class="content">
-                    <h3>flower pot</h3>
-                    <div class="price">Rp 150.000 <span>Rp 130.000</span> </div>
-                </div>
-            </div>
-
-            <div class="box">
-                <span class="discount">2%</span>
-                <div class="image">
-                    <img src="images/product 5.jpg" alt="">
-                    <div class="icons">
-                        <a href="#" class="fa-solid fa-heart"></a>
-                        <a href="#" class="cart-btn">add to cart</a>
-                        <a href="#" class="fa-solid fa-bag-shopping"></a>
-                    </div>
-                </div>
-                <div class="content">
-                    <h3>flower pot</h3>
-                    <div class="price">Rp 150.000 <span>Rp 148.000</span> </div>
-                </div>
-            </div>
-
-            <div class="box">
-                <span class="discount">25%</span>
-                <div class="image">
-                    <img src="images/product 6.jpg" alt="">
-                    <div class="icons">
-                        <a href="#" class="fa-solid fa-heart"></a>
-                        <a href="#" class="cart-btn">add to cart</a>
-                        <a href="#" class="fa-solid fa-bag-shopping"></a>
-                    </div>
-                </div>
-                <div class="content">
-                    <h3>flower pot</h3>
-                    <div class="price">Rp 150.000 <span>Rp 125.000</span> </div>
-                </div>
-            </div>
-
-            <div class="box">
-                <span class="discount">5%</span>
-                <div class="image">
-                    <img src="images/product 7.jpg" alt="">
-                    <div class="icons">
-                        <a href="#" class="fa-solid fa-heart"></a>
-                        <a href="#" class="cart-btn">add to cart</a>
-                        <a href="#" class="fa-solid fa-bag-shopping"></a>
-                    </div>
-                </div>
-                <div class="content">
-                    <h3>flower pot</h3>
-                    <div class="price">Rp 150.000 <span>Rp 145.000</span> </div>
-                </div>
-            </div>
-
-            <div class="box">
-                <span class="discount">17%</span>
-                <div class="image">
-                    <img src="images/product 8.jpg" alt="">
-                    <div class="icons">
-                        <a href="#" class="fa-solid fa-heart"></a>
-                        <a href="#" class="cart-btn">add to cart</a>
-                        <a href="#" class="fa-solid fa-bag-shopping"></a>
-                    </div>
-                </div>
-                <div class="content">
-                    <h3>flower pot</h3>
-                    <div class="price">Rp 150.000 <span>Rp 133.000</span> </div>
-                </div>
-            </div>
-
-            <div class="box">
-                <span class="discount">0%</span>
-                <div class="image">
-                    <img src="images/product 9.jpg" alt="">
-                    <div class="icons">
-                        <a href="#" class="fa-solid fa-heart"></a>
-                        <a href="#" class="cart-btn">add to cart</a>
-                        <a href="#" class="fa-solid fa-bag-shopping"></a>
-                    </div>
-                </div>
-                <div class="content">
-                    <h3>flower pot</h3>
-                    <div class="price">Rp 150.000 <span>Rp 150.000</span> </div>
-                </div>
-            </div>
+            <?php endforeach ?>
 
 
         </div>

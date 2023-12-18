@@ -197,6 +197,12 @@ header .fa-bars {
     padding: 1rem 0;
     line-height: 1.5;
 }
+
+.content .price {
+    font-size: 18px;
+    color: var(--pink);
+    font-weight: bold;
+}
 /** home css end **/
 
 /** about css start **/
