@@ -117,15 +117,15 @@ echo "<script>window.productsData = $jsonData;</script>";
         <!--- search bar end --->
 
         <!--- header section end --->
-
         <h1 class="heading">Products</h1>
+
         <div class="box-container products" id="products" x-data="products">
             <template x-for="(item, index) in items" x-key="index">
                 <div class="box">
                     <div class="image">
                         <img :src="`product_images/${item.gambar}`" :alt="`${item.nama}`">
                         <div class="icons">
-                            <a href="" class="fa-solid fa-heart"></a>
+                            <a :href="`detailprod.php?id=${item.id}`" class="fa-solid fa-eye item-detail-button"></a>
                             <a href="#" class="fa-solid fa-bag-shopping" @click.prevent="$store.cart.add(item)"></a>
                         </div>
                     </div>
@@ -135,11 +135,17 @@ echo "<script>window.productsData = $jsonData;</script>";
                     </div>
                 </div>
             </template>
+        </div>
     </section>
-</body>
 
-<script src="js/script.js"></script>
-<script type="module">import 'dotenv/config';</script>
+    <script src="js/script.js"></script>
+    <script src="js/modal.js"></script>
+    <script type="module">
+        import 'dotenv/config';
+    </script>
+
+
+</body>
 
 
 </html>
