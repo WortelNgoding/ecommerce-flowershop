@@ -169,7 +169,7 @@ if (isset($_SESSION['login']) && isset($_SESSION['username'])) {
                     </div>
                     <div class="content">
                         <h3><?= $produk["name"] ?></h3>
-                        <div class="price">Rp. <?= number_format($produk["price"]) ?></div>
+                        <div class="price">Rp <?= number_format($produk["price"], 0 , ".", ".") ?></div>
                     </div>
                 </div>
             <?php endforeach ?>

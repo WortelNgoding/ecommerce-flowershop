@@ -78,7 +78,7 @@ if (isset($_POST["cari"])) {
                                 <tr>
                                         <td><?= $i ?></td>
                                         <td><?= $produk["name"] ?></td>
-                                        <td>Rp.<?= number_format($produk["price"])  ?></td>
+                                        <td>Rp <?= number_format($produk["price"], 0 , ".", ".")  ?></td>
                                         <td><?= $produk["deskripsi"] ?></td>
                                         <td><img src="../product_images/<?= $produk["gambar"] ?>" alt=""></td>
                                         <td class="aksi">

@@ -3,6 +3,13 @@ require '../functions.php';
 
 if (isset($_POST['submit'])) {
 
+    function rupiahToNumber($rupiah)
+    {
+        return preg_replace('/[^0-9]/', '', $rupiah); // Remove non-numeric characters
+    }
+
+    $_POST['harga_produk'] = rupiahToNumber($_POST['harga_produk']);    
+
     //cek apakah data berhasil ditambahkan atau tidak 
     if (tambahProduk($_POST) > 0) {
         echo
@@ -51,7 +58,7 @@ if (isset($_POST['submit'])) {
                     <label for="harga">Harga</label>
                 </div>
                 <div class="col-75">
-                    <input type="text" id="harga" name="harga_produk" placeholder="Harga Produk...">
+                    <input type="text" id="harga" name="harga_produk" placeholder="Harga Produk..." onkeyup="formatRupiah()">
                 </div>
             </div>
             <div class="row">
@@ -75,6 +82,8 @@ if (isset($_POST['submit'])) {
             </div>
         </form>
     </div>
+
+    <script src="js/script.js"></script>
 
 </body>
 
