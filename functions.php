@@ -22,6 +22,43 @@ function query($query)
     return $rows;
 }
 
+function login($username, $password)
+{
+    global $koneksi;
+
+    $username = htmlspecialchars($username);
+    $password = htmlspecialchars($password);
+    $password = md5($password);
+
+    $login = mysqli_query($koneksi, "SELECT * FROM tb_user WHERE username = '$username' AND password = '$password'");
+    $cek = mysqli_num_rows($login);
+
+    if ($cek > 0) {
+        $data = mysqli_fetch_assoc($login);
+        if ($data['level'] == "admin") {
+            // Admin login
+            session_start();
+            $_SESSION['username'] = $username;
+            $_SESSION['level'] = "admin";
+            $_SESSION['login'] = true;
+            header("location:./admin/index.php");
+            exit();
+        } else if ($data['level'] == "user") {
+            // Regular user login
+            session_start();
+            $_SESSION['username'] = $username;
+            $_SESSION['level'] = "user";
+            $_SESSION['login'] = true;
+            header("location:index.php");
+            exit();
+        } else {
+            header("location:index.php?pesan=gagal");
+            exit();
+        }
+    }
+    return false; // Login failed
+}
+
 
 function tambahUser($data)
 {

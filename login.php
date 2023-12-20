@@ -1,39 +1,17 @@
 <?php
 require 'koneksi.php';
+require 'functions.php';
 
 
-// menangkap data yang dikirim dari form login
 if (isset($_POST['login'])) {
-    $username = htmlspecialchars($_POST['username']);
-    $password = htmlspecialchars($_POST['password']);
-    $password = md5($password);
-    // menyeleksi data user dengan username dan password yang sesuai
-    $login = mysqli_query($koneksi, "SELECT * FROM tb_user WHERE username= '$username' and password= '$password'");
-    //menghitung jumlah data yang ditemukan
-    $cek = mysqli_num_rows($login);
-    // cek apakah username dan password ditemukan pada database
-    if ($cek > 0) {
-        $data = mysqli_fetch_assoc($login);
-        //cek jika user login sebagai admin
-        if ($data['level'] == "admin") {
-            // buat session login dan username 
-            $_SESSION['username'] = $username;
-            $_SESSION['level'] = "admin";
-            $_SESSION['Login'] = true;
-            // alihkan ke halaman dashbord admin
-            header("location:./admin/index.php");
-        } else if ($data['level'] == "user") {
-            // buat session login dan username
-            $_SESSION['username'] = $username;
-            $_SESSION['level'] = "user";
-            $_SESSION['Login'] = true;
-            // alihkan ke halaman index
-            header("location:index.php");
-        } else {
-            header("location:index.php?pesan=gagal");
-        }
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    $login_result = login($username, $password);
+
+    if ($login_result === false) {
+        $error = true;
     }
-    $error = true;
 }
 
 ?>
