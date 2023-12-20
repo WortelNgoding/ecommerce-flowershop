@@ -1,4 +1,4 @@
-<?php 
+<?php
 require 'functions.php';
 
 session_start();
@@ -18,6 +18,7 @@ if (isset($_SESSION['login']) && isset($_SESSION['username'])) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -56,7 +57,11 @@ if (isset($_SESSION['login']) && isset($_SESSION['username'])) {
 
         <div class="icons">
             <p><?= $loggedInUsername ?></p>
+            <?php if (isset($_SESSION["login"])) : ?>
+                <a href="logout.php" class="fa fa-sign-out"></a>
+            <?php else : ?>
             <a href="login.php" class="fa-solid fa-circle-user"></a>
+            <?php endif ?>
         </div>
 
     </header>
@@ -154,19 +159,19 @@ if (isset($_SESSION['login']) && isset($_SESSION['username'])) {
         <h1 class="heading"> latest <span>products</span> </h1>
 
         <div class="box-container">
-            <?php foreach($dataProduk as $produk) : ?>
-            <div class="box">
-                <div class="image">
-                    <img src="product_images/<?= $produk["gambar"] ?>" alt="">
-                    <div class="icons">
-                        <a href="allprod.php" class="cart-btn">See Product</a>
+            <?php foreach ($dataProduk as $produk) : ?>
+                <div class="box">
+                    <div class="image">
+                        <img src="product_images/<?= $produk["gambar"] ?>" alt="">
+                        <div class="icons">
+                            <a href="allprod.php" class="cart-btn">See Product</a>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h3><?= $produk["name"] ?></h3>
+                        <div class="price">Rp. <?= number_format($produk["price"]) ?></div>
                     </div>
                 </div>
-                <div class="content">
-                    <h3><?= $produk["name"] ?></h3>
-                    <div class="price">Rp. <?= number_format($produk["price"]) ?></div>
-                </div>
-            </div>
             <?php endforeach ?>
 
 
