@@ -93,10 +93,10 @@ document.addEventListener('DOMContentLoaded', function (e) {
         e.preventDefault();
         const formData = new FormData(form);
         const data = new URLSearchParams(formData);
-        const objData = Object.fromEntries(data);
-
-        //! const message = formatMessage(objData);
-        //! window.open('http://wa.me/6285732680197?text=' + encodeURIComponent(message));
+        
+        // const objData = Object.fromEntries(data);
+        // const message = formatMessage(objData);
+        // window.open('http://wa.me/6285732680197?text=' + encodeURIComponent(message));
 
         try {
             const response = await fetch('./midtrans-server/placeOrder.php', {
@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', function (e) {
                 body: data,
             });
             const token = await response.text();
-            // console.log(token);
+
             window.snap.pay(token);
         } catch (err) {
             console.log(err.message);
