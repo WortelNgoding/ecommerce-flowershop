@@ -167,3 +167,13 @@ function upload()
 
     return $namaFileBaru;
 }
+
+function search($keyword)
+{
+    $query = "SELECT * FROM tb_produk
+				WHERE
+				name LIKE '%$keyword%'
+                ";
+                
+    return query($query);
+}
