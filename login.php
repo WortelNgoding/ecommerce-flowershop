@@ -43,6 +43,11 @@ if (isset($_POST['login'])) {
     <section>
         <form action="" method="post">
             <h1>Login</h1>
+            <?php if(isset ($error)) : ?>
+                    <div class="error">
+                        <h4 style="text-align:center; color:red; margin-top: 30px; background-color: black; padding: 10px; border-radius: 10px;">Username/Password Salah</h4>
+                    </div>
+            <?php endif ?>
             <div class="inputbox">
                 <ion-icon name="person-outline"></ion-icon>
                 <input type="text" name="username" required>
