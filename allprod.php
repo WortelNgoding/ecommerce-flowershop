@@ -52,7 +52,6 @@ echo "<script>window.productsData = $jsonData;</script>";
                     <li><a class="active" href="#product">Product</a></li>
                     <li><a href="index.php#review">Review</a></li>
                     <li><a href="index.php#contact">Contact</a></li>
-                    <li><a href=""><i class="fa-solid fa-magnifying-glass"></i> </a></li>
                     <li>
                         <a href="#" id="shopping-cart-button">
                             <i class="fa-solid fa-cart-shopping"></i>
