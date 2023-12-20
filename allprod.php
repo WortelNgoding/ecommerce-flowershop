@@ -2,6 +2,8 @@
 
 require 'functions.php';
 
+session_start();
+
 $dataProduk = query("SELECT * FROM tb_produk");
 
 $jsonData = json_encode($dataProduk);
@@ -125,7 +127,11 @@ echo "<script>window.productsData = $jsonData;</script>";
                         <img :src="`product_images/${item.gambar}`" :alt="`${item.nama}`">
                         <div class="icons">
                             <a :href="`detailprod.php?id=${item.id}`" class="fa-solid fa-eye item-detail-button"></a>
-                            <a href="#" class="fa-solid fa-bag-shopping" @click.prevent="$store.cart.add(item)"></a>
+                            <?php if (isset($_SESSION["login"])) : ?>
+                                <a href="#" class="fa-solid fa-bag-shopping" @click.prevent="$store.cart.add(item)"></a>
+                            <?php else : ?>
+                                <a href="login.php" class="fa-solid fa-bag-shopping"></a>
+                            <?php endif; ?>
                         </div>
                     </div>
                     <div class="content">
