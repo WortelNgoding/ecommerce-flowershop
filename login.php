@@ -2,6 +2,14 @@
 require 'koneksi.php';
 require 'functions.php';
 
+session_start();
+
+// jika user sudah login maka user tidak bisa akses halaman login dan di redirect ke index.php
+if (isset($_SESSION["login"])) {
+    header("Location: index.php");
+    exit;
+}
+
 
 if (isset($_POST['login'])) {
     $username = $_POST['username'];

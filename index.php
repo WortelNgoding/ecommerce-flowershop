@@ -1,8 +1,18 @@
 <?php 
-
 require 'functions.php';
 
-$dataProduk = query("SELECT * FROM tb_produk ORDER BY id DESC")
+session_start();
+
+$dataProduk = query("SELECT * FROM tb_produk ORDER BY id DESC");
+
+$_SESSION['index'] = true;
+
+if (isset($_SESSION['login']) && isset($_SESSION['username'])) {
+    $loggedInUsername = $_SESSION['username'];
+} else {
+    $loggedInUsername = "";
+}
+
 
 
 ?>
@@ -45,6 +55,7 @@ $dataProduk = query("SELECT * FROM tb_produk ORDER BY id DESC")
         </nav>
 
         <div class="icons">
+            <p><?= $loggedInUsername ?></p>
             <a href="login.php" class="fa-solid fa-circle-user"></a>
         </div>
 
