@@ -102,7 +102,10 @@ echo "<script>window.productsData = $jsonData;</script>";
                             <input type="number" name="phone" id="phone" autocomplete="off">
                         </label>
 
-                        <button class="checkout-button disabled" type="submit" id="checkout-button" value="checkout">Checkout</button>
+                        <div class="checkout-button-section">
+                            <button class="checkout-button checkout-button-midtrans disabled" type="submit" id="checkout-button" value="checkout">Checkout</button>
+                            <button class="checkout-button checkout-button-whatsapp disabled" type="submit" id="checkout-button-whatsapp" value="checkout">Checkout (WhatsApp)</button>
+                        </div>
                     </form>
                 </div>
             </div>

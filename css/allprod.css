@@ -10,7 +10,6 @@
     outline: none;
     border: none;
     text-decoration: none;
-    text-transform: capitalize;
     transition: .2s linear;
 }
 
@@ -252,7 +251,6 @@ header .fa-bars {
 
 .form-container .checkout-button {
     padding: 6px 14px;
-    background-color: royalblue;
     color: white;
     font-weight: bold;
     font-size: 1rem;
@@ -265,6 +263,10 @@ header .fa-bars {
     background-color: #999;
     cursor: not-allowed;
     
+}
+
+.checkout-button-midtrans {
+    background-color: royalblue;
 }
 
 /* shopping cart ened */
@@ -631,61 +633,14 @@ header .fa-bars {
 }
 /** footer css end **/
 
-/* Modal box start */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 99999;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.6);
-}
-
-.modal-container {
-    position: relative;
-    background-color: #fefefe;
-    color: black;
-    margin: 15% auto;
-    padding: 1.2rem;
-    border: 1px solid #666;
-    width: 80%;
-}
-
-.modal-container .close-icon {
-    position: absolute;
-    right: 1rem;
-}
-
-.modal-content {
+.checkout-button-section {
     display: flex;
-    flex-wrap: nowrap;
+    flex-direction: column;
 }
 
-.modal-content img {
-    height: 25rem;
-    margin-right: 2rem;
-    margin-bottom: 2rem;
+.checkout-button-whatsapp {
+    background-color: #25D366;
 }
-
-.modal-conten p {
-    font-size: 1.2rem ;
-    line-height: 1.8rem;
-    margin-top: 1.2rem;
-}
-
-.modal-content a {
-    display: flex;
-    gap: 1rem;
-    width: 12rem;
-    background-color: black;
-    color: white;
-    margin-top: 1rem;
-    padding: 1rem 1.6rem;
-}
-/* Modal box end */
 
 /* Media Queries */
 /* Mobile Phone */

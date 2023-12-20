@@ -73,6 +73,7 @@ document.addEventListener('alpine:init', () => {
 
 document.addEventListener('DOMContentLoaded', function (e) {
     const checkoutButton = document.querySelector('.checkout-button');
+    const checkoutButtonWhatsApp = document.querySelector('.checkout-button-whatsapp');
     checkoutButton.disabled = true;
     const form = document.querySelector('#checkoutForm');
     form.addEventListener('keyup', function () {
@@ -86,17 +87,19 @@ document.addEventListener('DOMContentLoaded', function (e) {
         }
 
         checkoutButton.disabled = false;
+
+        checkoutButtonWhatsApp.disabled = false;
+
         checkoutButton.classList.remove('disabled');
+
+        checkoutButtonWhatsApp.classList.remove('disabled');
     })
 
+    // Midtrans SNAP Button
     checkoutButton.addEventListener('click', async function (e) {
         e.preventDefault();
         const formData = new FormData(form);
         const data = new URLSearchParams(formData);
-        
-        // const objData = Object.fromEntries(data);
-        // const message = formatMessage(objData);
-        // window.open('http://wa.me/6285732680197?text=' + encodeURIComponent(message));
 
         try {
             const response = await fetch('./midtrans-server/placeOrder.php', {
@@ -111,6 +114,31 @@ document.addEventListener('DOMContentLoaded', function (e) {
         }
 
     });
+
+    // WhatsApp Button
+    checkoutButtonWhatsApp.addEventListener('click', async function (e) {
+        e.preventDefault();
+
+        const formData = new FormData(form);
+        const data = new URLSearchParams(formData);
+
+        const objData = Object.fromEntries(data);
+        const message = formatMessage(objData);
+        window.open('http://wa.me/6282377669910?text=' + encodeURIComponent(message));
+
+    })
+
+    // format pesan whatsapp
+    const formatMessage = (obj) => {
+        return `Data Customer
+            Nama : ${obj.name}
+            Email : ${obj.email}
+            No HP : ${obj.phone}
+        Data Pesanan
+            ${JSON.parse(obj.items).map((item) => `${item.name} (${item.quantity} x ${rupiah(item.total)}) \n `)}
+        Total : ${rupiah(obj.total)}
+        Terima kasih!`
+    }
 })
 
 
@@ -138,16 +166,4 @@ const rupiah = (number) => {
 
 
 
-//! format pesan whatsapp
-// const formatMessage = (obj) => {
-//     return `Data Customer
-//         Nama : ${obj.name}
-//         Email : ${obj.email}
-//         No HP : ${obj.phone}
-//     Data Pesanan
-//         ${JSON.parse(obj.items).map((item) => `${item.nama} (${item.quantity} x ${rupiah(item.total)}) \n `)}
-//     Total : ${rupiah(obj.total)}
-//     Terima kasih!`
-
-// }
 
