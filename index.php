@@ -56,9 +56,9 @@ if (isset($_SESSION['login']) && isset($_SESSION['username'])) {
         </nav>
 
         <div class="icons">
-            <p><?= $loggedInUsername ?></p>
             <?php if (isset($_SESSION["login"])) : ?>
-                <a href="logout.php" class="fa fa-sign-out"></a>
+                <h2>Hello <?= $loggedInUsername ?>!</h2>
+                <a href="logout.php" class="logout-button"><i class="fa fa-sign-out"></i></a>
             <?php else : ?>
             <a href="login.php" class="fa-solid fa-circle-user"></a>
             <?php endif ?>

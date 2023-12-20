@@ -203,6 +203,15 @@ header .fa-bars {
     color: var(--pink);
     font-weight: bold;
 }
+
+.icons {
+    display: flex;
+    align-items: center;
+}
+
+.logout-button i{
+    color: red;
+}
 /** home css end **/
 
 /** about css start **/
