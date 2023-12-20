@@ -18,6 +18,27 @@ body {
   background-size: cover;
 }
 
+header {
+    position: relative;
+    left: 20px;
+    background-color: white;
+    margin-bottom: 15rem;
+    padding: 15px;
+    border-radius: 20px 0 0 20px;
+    font-size: 25px;
+    transition: .3s ease;
+}
+
+header:hover {
+    left: 10px;
+}
+
+header a {
+    color: black;
+    display: flex;
+    align-items: center;
+}
+
 section {
     position: relative;
     max-width: 400px;
