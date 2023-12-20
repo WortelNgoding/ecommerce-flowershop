@@ -4,7 +4,9 @@ require '../functions.php';
 
 $dataProduk = query("SELECT * FROM tb_produk");
 
-
+if (isset($_POST["cari"])) {
+    $dataProduk = search($_POST["keyword"]);
+}
 ?>
 
 
@@ -44,7 +46,13 @@ $dataProduk = query("SELECT * FROM tb_produk");
             <section class="attendance">
                 <div class="attendance-list">
                     <h1>List Produk</h1>
-                    <a href="tambah_produk.php" class="button-3">Tambah</a>
+                    <div class="option-class">
+                        <a href="tambah_produk.php" class="button-3">Tambah</a>
+                        <form action="" method="POST" class="">
+                            <input type="text" name="keyword" autocomplete="off" placeholder="Cari...">
+                            <button type="submit" name="cari"><i class="fa fa-search"></i></button>
+                        </form>
+                    </div>
                     <table class="table">
                         <thead>
                             <tr>
