@@ -13,6 +13,20 @@ if (isset($_SESSION['login']) && isset($_SESSION['username'])) {
     $loggedInUsername = "";
 }
 
+if (isset($_POST["submit_pesan"])) {
+    if (kirimPesan($_POST) > 0) {
+        echo
+        "<script>
+          document.location.href = 'form_response.php';
+      </script>";
+    } else {
+        echo
+        "<script>
+          alert('Data gagal ditambahkan!');
+      </script>";
+    }
+}
+
 
 
 ?>
@@ -60,7 +74,7 @@ if (isset($_SESSION['login']) && isset($_SESSION['username'])) {
                 <h2>Hello <?= $loggedInUsername ?>!</h2>
                 <a href="logout.php" class="logout-button"><i class="fa fa-sign-out"></i></a>
             <?php else : ?>
-            <a href="login.php" class="fa-solid fa-circle-user"></a>
+                <a href="login.php" class="fa-solid fa-circle-user"></a>
             <?php endif ?>
         </div>
 
@@ -169,7 +183,7 @@ if (isset($_SESSION['login']) && isset($_SESSION['username'])) {
                     </div>
                     <div class="content">
                         <h3><?= $produk["name"] ?></h3>
-                        <div class="price">Rp <?= number_format($produk["price"], 0 , ".", ".") ?></div>
+                        <div class="price">Rp <?= number_format($produk["price"], 0, ".", ".") ?></div>
                     </div>
                 </div>
             <?php endforeach ?>
@@ -287,17 +301,12 @@ if (isset($_SESSION['login']) && isset($_SESSION['username'])) {
 
         <div class="row">
 
-            <form action="https://formsubmit.co/firza7004@gmail.com" method="post">
-                <!-- Params Start -->
-                <input type="hidden" name="_captcha" value="false">
-                <input type="hidden" name="_next" value="http://localhost/ecom_bunga/form_response.php">
-                <input type="hidden" name="_template" value="table">
-                <!-- Params End -->
+            <form action="" method="post">
                 <input type="text" name="name" placeholder="Your Name..." class="box">
                 <input type="email" name="email" placeholder="Your Email.." class="box">
                 <input type="number" name="number" placeholder="Your Number..." class="box">
                 <textarea name="message" class="box" placeholder="Message" id="" cols="30" rows="10"></textarea>
-                <input type="submit" value="Send Message" class="btn">
+                <input type="submit" value="Send Message" class="btn" name="submit_pesan">
             </form>
 
             <div class="image">

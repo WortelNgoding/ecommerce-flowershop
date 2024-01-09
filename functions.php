@@ -214,3 +214,20 @@ function search($keyword)
                 
     return query($query);
 }
+
+function kirimPesan($data) {
+    global $koneksi;
+
+    // name, email, number, message
+    $name = htmlspecialchars($data["name"]);
+    $email = htmlspecialchars($data["email"]);
+    $number = htmlspecialchars($data["number"]);
+    $message = htmlspecialchars($data["message"]);
+    
+
+    $query = "INSERT INTO tb_pesan_kontak VALUES ('', '$name', '$email', '$number', '$message')";
+
+    mysqli_query($koneksi, $query);
+
+    return mysqli_affected_rows($koneksi);
+}
